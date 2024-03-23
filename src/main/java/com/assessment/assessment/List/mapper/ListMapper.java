@@ -10,6 +10,7 @@ import org.mapstruct.MappingTarget;
 import org.mapstruct.NullValuePropertyMappingStrategy;
 
 import com.assessment.assessment.List.ListEntity;
+import com.assessment.assessment.List.dto.CreateListDto;
 import com.assessment.assessment.List.dto.ListDto;
 import com.assessment.assessment.List.dto.UpdateListDto;
 
@@ -26,4 +27,10 @@ public interface ListMapper {
     @Mapping(target = "id", ignore = true)
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     void updateListFromDto(UpdateListDto updateListDto, @MappingTarget ListEntity listEntity);
+
+
+    @Mapping(target = "createdAt", ignore = true)
+    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "isCompleted", source = "isCompleted", defaultValue = "false")
+    ListEntity createListFromDto(CreateListDto createListDto, @MappingTarget ListEntity listEntity);
 }

@@ -1,5 +1,6 @@
 package com.assessment.assessment.List;
 
+import com.assessment.assessment.List.dto.CreateListDto;
 import com.assessment.assessment.List.dto.ListDto;
 import com.assessment.assessment.List.dto.UpdateListDto;
 import com.assessment.assessment.List.mapper.ListMapper;
@@ -39,9 +40,10 @@ public class ListService {
 
   @SneakyThrows
   @Transactional
-  public ResponseEntity<ListEntity> createListItem(ListDto input) {
+  public ResponseEntity<ListEntity> createListItem(CreateListDto input) {
     try {
-      ListEntity itemsToSave = listMapper.dtoToEntity(input);
+      ListEntity list = new ListEntity();
+      ListEntity itemsToSave = listMapper.createListFromDto(input, list);
       ListEntity result = listRepository.save(itemsToSave);
       return new ResponseEntity<>(result, HttpStatus.CREATED);
     } catch (Exception e) {

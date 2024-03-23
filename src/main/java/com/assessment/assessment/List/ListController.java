@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.assessment.assessment.List.dto.CreateListDto;
 import com.assessment.assessment.List.dto.ListDto;
 import com.assessment.assessment.List.dto.UpdateListDto;
 
@@ -35,7 +36,7 @@ public class ListController {
 
     @SneakyThrows
     @PostMapping("")
-    public ResponseEntity<ListEntity> createListItem(@RequestBody ListDto input) {
+    public ResponseEntity<ListEntity> createListItem(@RequestBody CreateListDto input) {
         return listService.createListItem(input);
     }
    
