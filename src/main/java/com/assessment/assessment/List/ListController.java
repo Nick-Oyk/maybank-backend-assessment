@@ -6,6 +6,7 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -44,6 +45,11 @@ public class ListController {
     @PatchMapping("/{id}")
     public ResponseEntity<ListEntity> updateListItem(@PathVariable UUID id, @Valid @RequestBody UpdateListDto input) {
         return listService.updateListItem(id, input);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<ListEntity> deleteListItem(@PathVariable UUID id) {
+        return listService.deleteListItem(id);
     }
 }
  

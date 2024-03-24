@@ -71,4 +71,21 @@ public class ListService {
       throw new Exception(e);
     }
   }
+
+  @SneakyThrows
+  @Transactional
+  public ResponseEntity<ListEntity> deleteListItem(@NonNull UUID id) {
+    Optional<ListEntity> result = listRepository.findById(id);
+    if (!result.isPresent()) {
+      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    try {
+      ListEntity data = result.get();
+      listRepository.deleteById(id);
+      return new ResponseEntity<>(data, HttpStatus.OK);
+    } catch (Exception e) {
+      throw new Exception(e);
+    }
+  }
 }
