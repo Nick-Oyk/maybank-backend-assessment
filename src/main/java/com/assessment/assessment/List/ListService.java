@@ -40,6 +40,7 @@ public class ListService {
 
   @SneakyThrows
   @Transactional
+  @SuppressWarnings("null")
   public ResponseEntity<ListEntity> createListItem(CreateListDto input) {
     try {
       ListEntity list = new ListEntity();
@@ -53,6 +54,7 @@ public class ListService {
 
   @SneakyThrows
   @Transactional
+  @SuppressWarnings("null")
   public ResponseEntity<ListEntity> updateListItem(
     @NonNull UUID id,
     UpdateListDto input
