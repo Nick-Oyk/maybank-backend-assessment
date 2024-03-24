@@ -19,10 +19,11 @@ public class CountryService {
 
   @SneakyThrows
   @Transactional
+  @SuppressWarnings("null")
   public ResponseEntity<List<CountryDto>> getCountries() {
     try {
       RestTemplate restTemplate = new RestTemplate();
-      ResponseEntity<List<CountryDto>> responseEntity = restTemplate.exchange(
+    ResponseEntity<List<CountryDto>> responseEntity = restTemplate.exchange(
         "https://restcountries.com/v3.1/all?fields=name",
         HttpMethod.GET,
         null,
