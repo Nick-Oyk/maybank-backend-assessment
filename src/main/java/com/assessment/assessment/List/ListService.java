@@ -5,12 +5,13 @@ import com.assessment.assessment.List.dto.ListDto;
 import com.assessment.assessment.List.dto.UpdateListDto;
 import com.assessment.assessment.List.mapper.ListMapper;
 import jakarta.transaction.Transactional;
-import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 import lombok.NonNull;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -26,9 +27,10 @@ public class ListService {
 
   @SneakyThrows
   @Transactional
-  public ResponseEntity<List<ListDto>> getListItems() {
+  @SuppressWarnings("null")
+  public ResponseEntity<Page<ListDto>> getListItems(PageRequest pageRequest) {
     try {
-      List<ListEntity> result = listRepository.findAll();
+      Page<ListEntity> result = listRepository.findAll(pageRequest);
       return new ResponseEntity<>(
         listMapper.entitiesToDtos(result),
         HttpStatus.OK

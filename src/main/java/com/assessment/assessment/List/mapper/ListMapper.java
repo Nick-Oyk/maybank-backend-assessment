@@ -8,6 +8,7 @@ import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.NullValuePropertyMappingStrategy;
+import org.springframework.data.domain.Page;
 
 import com.assessment.assessment.List.ListEntity;
 import com.assessment.assessment.List.dto.CreateListDto;
@@ -33,4 +34,8 @@ public interface ListMapper {
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "isCompleted", source = "isCompleted", defaultValue = "false")
     ListEntity createListFromDto(CreateListDto createListDto, @MappingTarget ListEntity listEntity);
+
+    default Page<ListDto> entitiesToDtos(Page<ListEntity> listEntity) {
+        return listEntity.map(entities -> entityToDto(entities));
+      }
 }
