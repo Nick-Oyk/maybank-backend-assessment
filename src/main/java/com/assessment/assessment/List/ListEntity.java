@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="LIST")
+@Table(name="lists")
 public class ListEntity {
 
     @Id

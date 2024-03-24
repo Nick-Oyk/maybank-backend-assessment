@@ -12,7 +12,7 @@ import com.assessment.assessment.List.dto.CreateListDto;
 import com.assessment.assessment.List.dto.ListDto;
 import com.assessment.assessment.List.dto.UpdateListDto;
 
-import lombok.SneakyThrows;
+import jakarta.validation.Valid;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -34,15 +34,13 @@ public class ListController {
        return listService.getListItems();
     }
 
-    @SneakyThrows
     @PostMapping("")
-    public ResponseEntity<ListEntity> createListItem(@RequestBody CreateListDto input) {
+    public ResponseEntity<ListEntity> createListItem(@Valid @RequestBody CreateListDto input) {
         return listService.createListItem(input);
     }
    
-    
     @PutMapping("/{id}")
-    public ResponseEntity<ListEntity> updateListItem(@PathVariable UUID id, @RequestBody UpdateListDto input) {
+    public ResponseEntity<ListEntity> updateListItem(@PathVariable UUID id, @Valid @RequestBody UpdateListDto input) {
         return listService.updateListItem(id, input);
     }
 }
