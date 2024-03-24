@@ -3,6 +3,8 @@ package com.assessment.assessment.List;
 import com.assessment.assessment.List.dto.CreateListDto;
 import com.assessment.assessment.List.dto.ListDto;
 import com.assessment.assessment.List.dto.UpdateListDto;
+
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +30,9 @@ public class ListController {
   @Autowired
   private ListService listService;
 
+  
   @GetMapping("")
+  @Operation(summary = "get all list items with pagination support")
   public ResponseEntity<Page<ListDto>> getListItems(
     @RequestParam(name = "page", defaultValue = "0") Integer page,
     @RequestParam(name = "perPage", defaultValue = "10") Integer perPage
@@ -38,6 +42,7 @@ public class ListController {
   }
 
   @PostMapping("")
+  @Operation(summary = "create a list item")
   public ResponseEntity<ListEntity> createListItem(
     @Valid @RequestBody CreateListDto input
   ) {
@@ -45,6 +50,7 @@ public class ListController {
   }
 
   @PatchMapping("/{id}")
+  @Operation(summary = "update a list item")
   public ResponseEntity<ListEntity> updateListItem(
     @PathVariable UUID id,
     @Valid @RequestBody UpdateListDto input
@@ -53,6 +59,7 @@ public class ListController {
   }
 
   @DeleteMapping("/{id}")
+  @Operation(summary = "delete a list item")
   public ResponseEntity<ListEntity> deleteListItem(@PathVariable UUID id) {
     return listService.deleteListItem(id);
   }

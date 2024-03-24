@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.assessment.assessment.Country.dto.CountryDto;
 
+import io.swagger.v3.oas.annotations.Operation;
+
 import org.springframework.web.bind.annotation.GetMapping;
 
 
@@ -23,6 +25,7 @@ public class CountryController {
 
 
     @GetMapping("")
+    @Operation(summary = "gets country name's from restcountries.com")
     public  ResponseEntity<List<CountryDto>> getCountries() {
         return countryService.getCountries();
     }
