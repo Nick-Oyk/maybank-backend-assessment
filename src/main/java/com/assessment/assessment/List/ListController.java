@@ -5,7 +5,9 @@ import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.assessment.assessment.List.dto.CreateListDto;
@@ -17,13 +19,13 @@ import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 
 
 @RestController
 @RequestMapping("api/v1/list")
+@EnableTransactionManagement
 public class ListController {
 
     @Autowired
@@ -39,7 +41,7 @@ public class ListController {
         return listService.createListItem(input);
     }
    
-    @PutMapping("/{id}")
+    @PatchMapping("/{id}")
     public ResponseEntity<ListEntity> updateListItem(@PathVariable UUID id, @Valid @RequestBody UpdateListDto input) {
         return listService.updateListItem(id, input);
     }
