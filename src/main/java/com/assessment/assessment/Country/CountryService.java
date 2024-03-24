@@ -14,9 +14,6 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class CountryService {
 
-  //   @Autowired
-  //   private CountryMapper countryMapper;
-
   @SneakyThrows
   @Transactional
   @SuppressWarnings("null")
