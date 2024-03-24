@@ -3,7 +3,7 @@ This is a sample Springboot Web Application able to perform CRUD operations conn
 
 
 ## Build the image for DB
-To run the demo you just need to build the image (from root directory):
+To run the database you just need to build the image (from root directory):
 ```
 docker build -t mssql-db .
 ```
