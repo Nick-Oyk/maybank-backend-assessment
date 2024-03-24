@@ -25,7 +25,7 @@ public class CountryController {
 
 
     @GetMapping("")
-    @Operation(summary = "gets country name's from restcountries.com")
+    @Operation(summary = "get country names from restcountries.com")
     public  ResponseEntity<List<CountryDto>> getCountries() {
         return countryService.getCountries();
     }
