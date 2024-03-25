@@ -18,6 +18,6 @@ Then, you need to run the container:
 docker run -p 1433:1433 -d mssql-db
 ```
 
-## [Swagger Client Access ](http://localhost:8080/swagger-ui/index.html)
-Upon executing the web application, access the Swagger client using the link. Here, you can seamlessly explore and test the various endpoints available.
+## Swagger Client
+Upon executing the web application, access the Swagger client using the link [(Swagger Client Access)](http://localhost:8080/swagger-ui/index.html). Here, you can seamlessly explore and test the various endpoints available.
 
