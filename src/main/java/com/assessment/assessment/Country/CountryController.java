@@ -12,10 +12,12 @@ import com.assessment.assessment.Country.dto.CountryDto;
 
 import io.swagger.v3.oas.annotations.Operation;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("api/v1/country")
 @EnableTransactionManagement
 public class CountryController {
