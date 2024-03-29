@@ -3,8 +3,6 @@ package com.assessment.assessment.History;
 import com.assessment.assessment.History.dto.CreateHistoryDto;
 import com.assessment.assessment.History.dto.HistoryDto;
 import com.assessment.assessment.History.dto.UpdateHistoryDto;
-import com.assessment.assessment.List.ListEntity;
-import com.assessment.assessment.List.dto.UpdateListDto;
 
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;

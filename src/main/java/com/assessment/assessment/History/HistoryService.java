@@ -5,8 +5,6 @@ import com.assessment.assessment.History.dto.DeleteHistoryDto;
 import com.assessment.assessment.History.dto.HistoryDto;
 import com.assessment.assessment.History.dto.UpdateHistoryDto;
 import com.assessment.assessment.History.mapper.HistoryMapper;
-import com.assessment.assessment.List.ListEntity;
-import com.assessment.assessment.List.dto.UpdateListDto;
 import jakarta.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
